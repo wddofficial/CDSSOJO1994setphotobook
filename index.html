@@ -1,0 +1,1388 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>School Reunion Photo Book</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f4f8;
+                color: #333;
+            }
+
+            header {
+                background: linear-gradient(90deg, #4CAF50, #66BB6A);
+                color: white;
+                text-align: center;
+                padding: 1.5rem 0;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            header h1 {
+                margin: 0;
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1rem;
+                margin: 0.5rem 0 0;
+            }
+
+            .container {
+                max-width: 1400px;
+                margin: 2rem auto;
+                padding: 0 20px;
+            }
+
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .card {
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                position: relative;
+                cursor: pointer;
+            }
+
+            .card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .card .info {
+                padding: 15px;
+                text-align: center;
+            }
+
+            .card .info h3 {
+                margin: 0;
+                font-size: 1.2rem;
+                color: #333;
+            }
+
+            .card .info p {
+                margin: 0.5rem 0 0;
+                font-size: 0.9rem;
+                color: #666;
+            }
+
+            .card .info a {
+            color: #4CAF50;
+            text-decoration: none;
+            transition: color 0.3s;
+    
+        }
+
+        .card .info a:hover {
+            color: #388E3C;
+        }
+
+            .icon {
+                margin-right: 8px;
+                color: #4CAF50;
+            }
+
+            .icon:hover {
+                color: #388E3C;
+            }
+
+            /* Modal styling */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+                align-items: center;
+                justify-content: center;
+            }
+
+            .modal img {
+                max-width: 90%;
+                max-height: 80%;
+                border-radius: 12px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            }
+
+            .modal .close {
+                position: absolute;
+                top: 20px;
+                right: 30px;
+                color: white;
+                font-size: 2rem;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            footer {
+                text-align: center;
+                background-color: #4CAF50;
+                color: white;
+                padding: 15px 0;
+                margin-top: 30px;
+            }
+
+            footer p {
+                margin: 0;
+                font-size: 0.9rem;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>School Reunion Photo Book</h1>
+            <p>Relive the memories and reconnect with friends</p>
+        </header>
+
+        <div class="container">
+            <div class="gallery">
+                <div class="card">
+                    <img src="images/1(Roli Dorothy Okangbuan )/WhatsApp Image 2024-12-13 at 03.05.53.jpeg" alt="Roli Dorothy Okangbuan" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Mrs Roli Dorothy Okangbuan </h3>
+                    <p>
+                        JSS Class: Emerald<br>
+                        SSS Class: Goldy<br><br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">+234 703 251 5195</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:roliawani9@gmail.com">roliawani9@gmail.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Plot 477,400 road, Festac town</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/roliawani9" target="_blank">roliawani9</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/Roli Awani" target="_blank">Roli Awani</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/3(Francisca Onduku nee Odili)/IMG_20230302_173248078_HDR.jpg" alt="Francisca Onduku nee Odili" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Francisca Onduku nee Odili</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/4(onyekwere Ndubuisi R)/WhatsApp Image 2024-12-13 at 03.08.00.jpeg" alt="onyekwere Ndubuisi R" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>onyekwere Ndubuisi R</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/6(Ehimare Omoike)/WhatsApp Image 2024-12-13 at 03.08.51.jpeg" alt="Ehimare Omoike" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Ehimare Omoike</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="images/2(Olubunmi Ogundele)/WhatsApp Image 2024-12-13 at 03.06.17.jpeg" alt="Olubunmi Ogundele" onclick="openModal(this)">
+                    <div class="info">
+                        <h3>Olubunmi Ogundele</h3>
+                    <p>
+                        JSs Class: Marble<br>
+                        Sss Class: Ruby<br>
+                        <i class="fas fa-phone icon"></i><a href="tel:08023836494">08023836494</a><br>
+                        <i class="fas fa-envelope icon"></i><a href="mailto:example@example.com">example@example.com</a><br>
+                        <i class="fas fa-map-marker-alt icon"></i><a href="https://www.google.com/maps/search/?api=1&query=Gbagada%2C+Lagos" target="_blank">Gbagada, Lagos</a><br>
+                        <i class="fab fa-instagram icon"></i><a href="https://instagram.com/Olubunminibbles" target="_blank">Olubunminibbles</a><br>
+                        <i class="fab fa-facebook icon"></i><a href="https://facebook.com/OgundeleBunmi" target="_blank">Ogundele Bunmi / Nibbles et al.</a>
+                    </p>
+                    </div>
+                </div>
+
+                
+                
+                <!-- More cards as needed -->
+            </div>
+        </div>
+
+        <!-- Modal for Enlarged Image -->
+        <div id="imageModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="">
+        </div>
+
+        <footer>
+            <p>&copy; 2024 School Reunion Alumni Photo Book. All Rights Reserved.</p>
+        </footer>
+
+        <script>
+            function openModal(image) {
+                const modal = document.getElementById('imageModal');
+                const modalImage = document.getElementById('modalImage');
+                modal.style.display = 'flex'; // Change to 'flex' to align the modal content correctly
+                modalImage.src = image.src;
+            }
+
+            function closeModal() {
+                const modal = document.getElementById('imageModal');
+                modal.style.display = 'none';
+            }
+        </script>
+    </body>
+    </html>
